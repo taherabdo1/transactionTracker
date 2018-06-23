@@ -1,0 +1,12 @@
+2018-06-23 16:38:02 [main] INFO  c.n.t.c.TransactionControllerTests - Starting TransactionControllerTests on DESKTOP-FK0BPQN with PID 2876 (started by USER in E:\projects\transactionTracker)
+2018-06-23 16:38:02 [main] DEBUG c.n.t.c.TransactionControllerTests - Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2018-06-23 16:38:02 [main] INFO  c.n.t.c.TransactionControllerTests - No active profile set, falling back to default profiles: default
+2018-06-23 16:38:06 [main] INFO  c.n.t.c.TransactionControllerTests - Started TransactionControllerTests in 4.048 seconds (JVM running for 5.995)
+2018-06-23 16:38:07 [main] DEBUG c.n.t.c.TransactionControllerTests - {
+	"amount":13.3,
+	"timestamp":1529756760467
+}
+2018-06-23 16:38:07 [main] INFO  c.n.t.DemoApplicationTests - Starting DemoApplicationTests on DESKTOP-FK0BPQN with PID 2876 (started by USER in E:\projects\transactionTracker)
+2018-06-23 16:38:07 [main] DEBUG c.n.t.DemoApplicationTests - Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2018-06-23 16:38:07 [main] INFO  c.n.t.DemoApplicationTests - No active profile set, falling back to default profiles: default
+2018-06-23 16:38:13 [main] INFO  c.n.t.DemoApplicationTests - Started DemoApplicationTests in 5.893 seconds (JVM running for 12.784)
