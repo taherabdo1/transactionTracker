@@ -39,16 +39,16 @@ public class TransactionController {
 		int result = transactionService.addNewTransaction(transaction);
 		
 		if (result == Constants.BEFORE_LAST_MINUTE) {
-			logger.info("this transaction occured more than one minute ago");
+			logger.info("this transaction occured more than one minute ago "+transaction.toString());
 			return new ResponseEntity<>("", HttpStatus.NO_CONTENT);
 		} else if (result == Constants.ADD_WITHIN_LAST_MINUTE) {
-			logger.info("this transaction added successfully to the counted list");
+			logger.info("this transaction added successfully to the counted list "+transaction.toString());
 			return new ResponseEntity<>("", HttpStatus.CREATED);
 		}
 		// if the transaction is in the future
 		else {
-			logger.info("this transaction occured in the future");
-			return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+			logger.info("this transaction occured in the future "+transaction.toString());
+			return new ResponseEntity<>("the timestamp can't be in future", HttpStatus.BAD_REQUEST);
 		}
 	}
 	
