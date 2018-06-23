@@ -1,5 +1,6 @@
 package com.n26.transactionsTrack.service;
 
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,13 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.n26.transactionsTrack.Constants;
 import com.n26.transactionsTrack.controller.StatisticsController;
 import com.n26.transactionsTrack.entity.TransactionEntity;
 import com.n26.transactionsTrack.entity.TransactionReportEntity;
+import com.n26.transactionsTrack.utils.Constants;
 
 @Service
-public class TransactionsService {
+public class TransactionsService implements TransactionsServiceInt {
 
 	private final static Logger logger = LoggerFactory.getLogger(TransactionsService.class);
 
@@ -34,6 +35,7 @@ public class TransactionsService {
 	private ReadWriteLock rwLock = new ReentrantReadWriteLock();
 	private List<TransactionReportEntity> lastMinuteTransactions = new ArrayList<>(60); // entry for each second
 
+	@Override
 	public int addNewTransaction(TransactionEntity transactionEntity) {
 
 		if (Instant.now().toEpochMilli() - transactionEntity.getTimestamp() > 60000) {
@@ -63,6 +65,8 @@ public class TransactionsService {
 					curerntSecondTotalReport.setMax(transactionEntity.getAmount());
 					curerntSecondTotalReport.setMin(transactionEntity.getAmount());
 					curerntSecondTotalReport.setSum(transactionEntity.getAmount());
+					curerntSecondTotalReport.setAvg(0.0);
+					
 				}
 
 			} finally {
@@ -75,6 +79,7 @@ public class TransactionsService {
 
 	}
 
+	@Override
 	public TransactionReportEntity getReport() {
 
 		TransactionReportEntity report = new TransactionReportEntity();
@@ -102,6 +107,7 @@ public class TransactionsService {
 					}
 				}
 			}
+			report.setAvg(report.getSum() / report.getCount());
 			// no transactions in last 60 seconds
 			if (report.getCount() == 0) {
 				report.setAvg(0);
@@ -109,8 +115,7 @@ public class TransactionsService {
 				report.setMax(0);
 				report.setMin(0);
 				report.setSum(0);
-			}
-			report.setAvg(report.getSum() / report.getCount());
+			}			
 			logger.debug(report.toString());
 			return report;
 		} finally {

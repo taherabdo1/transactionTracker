@@ -1,4 +1,4 @@
-package com.n26.transactionsTrack;
+package com.n26.transactionsTrack.utils;
 
 public class Constants {
 

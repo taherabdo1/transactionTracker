@@ -32,9 +32,9 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.jayway.restassured.RestAssured;
-import com.n26.transactionsTrack.Constants;
 import com.n26.transactionsTrack.entity.TransactionEntity;
 import com.n26.transactionsTrack.service.TransactionsService;
+import com.n26.transactionsTrack.utils.Constants;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(TransactionController.class)

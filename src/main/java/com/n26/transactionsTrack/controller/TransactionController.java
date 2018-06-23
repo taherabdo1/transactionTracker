@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.n26.transactionsTrack.Constants;
 import com.n26.transactionsTrack.entity.TransactionEntity;
 import com.n26.transactionsTrack.service.TransactionsService;
+import com.n26.transactionsTrack.utils.Constants;
 
 @RestController
 @Validated

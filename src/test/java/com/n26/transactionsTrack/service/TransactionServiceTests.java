@@ -15,9 +15,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.n26.transactionsTrack.Constants;
 import com.n26.transactionsTrack.entity.TransactionEntity;
 import com.n26.transactionsTrack.entity.TransactionReportEntity;
+import com.n26.transactionsTrack.utils.Constants;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TransactionServiceTests {

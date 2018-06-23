@@ -21,10 +21,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.n26.transactionsTrack.Constants;
 import com.n26.transactionsTrack.entity.TransactionEntity;
 import com.n26.transactionsTrack.entity.TransactionReportEntity;
 import com.n26.transactionsTrack.service.TransactionsService;
+import com.n26.transactionsTrack.utils.Constants;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(StatisticsController.class)
